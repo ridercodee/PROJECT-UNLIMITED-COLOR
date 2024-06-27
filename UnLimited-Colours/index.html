@@ -7,15 +7,17 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="main">
-  <h1 id="head">Start Should change the Background color Every second</h1>
-
-  <div>
-   <button id="start">Start</button>
-   <button id="stop">Stop</button>
-  </div>
-
-  </div>
+ <div id="main">
+      <h1 id="head">Start Should change the Background color Every second</h1>
+      <div>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+      </div>
+      <div class="slider">
+        <label id="fonts" for="red">Slide To Change</label>
+        <input type="range" id="red" name="red" min="0" max="255" />
+      </div>
+    </div>
 </body>
 <script src="color.js"></script>
 </html>
