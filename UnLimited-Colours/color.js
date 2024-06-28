@@ -1,5 +1,6 @@
 // Generate random color
 let changer;
+      let interval = 1000;
 
       const randomColor = function () {
         const hex = "0123456789ABCDEF";
@@ -10,13 +11,13 @@ let changer;
         return color;
       };
 
+      const changeBgColor = function () {
+        document.body.style.backgroundColor = randomColor();
+      };
+
       const startChangingColor = function () {
         if (!changer) {
-          changer = setInterval(changeBgColor, 1000);
-        }
-
-        function changeBgColor() {
-          document.body.style.backgroundColor = randomColor();
+          changer = setInterval(changeBgColor, interval);
         }
       };
 
@@ -26,9 +27,11 @@ let changer;
       };
 
       const updateBackgroundColor = function () {
-        const red = document.getElementById("red").value;
-        document.body.style.backgroundColor = randomColor();
-        
+        interval = document.getElementById("red").value;
+        if (changer) {
+          clearInterval(changer);
+          changer = setInterval(changeBgColor, interval);
+        }
       };
 
       document
@@ -37,8 +40,6 @@ let changer;
       document
         .querySelector("#stop")
         .addEventListener("click", stopChangingColor);
-
-      document 
+      document
         .getElementById("red")
         .addEventListener("input", updateBackgroundColor);
-
